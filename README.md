@@ -5,7 +5,7 @@
 
 - 🔭 I’m currently a college on **Electronic Engineering Polytechnic Institute of Surabaya**
 
-- 🌱 I’m currently learning **Js and C#**
+- 🌱 I’m currently learning **Modbus Protocol**
 
 - 💬 Ask me about **Electrical**
 
