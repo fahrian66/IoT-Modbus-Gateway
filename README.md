@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Fahrian M Rafli</h1>
-<h3 align="center">An Electronics Engineer</h3>
+<h3 align="center">Electronics Engineer</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=fahrian66&label=Profile%20views&color=0e75b6&style=flat" alt="fahrian66" /> </p>
 
