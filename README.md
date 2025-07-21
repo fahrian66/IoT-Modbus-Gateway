@@ -9,7 +9,7 @@ The Modbus Gateway typically maps each register from the RTU protocol to a TCP r
 <img src="assets/ModbusGateway.jpg" width="400">
 
 ## Overview
-* <a href="#blok-diagram">Block Diagram</a>
+* [Block Diagram](#block-diagram)
 * <a href="#circuit-design">Circuit Design</a>
 * <a href="#register-mapping">Register Mapping</a>
 * <a href="#website">Website</a>
