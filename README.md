@@ -77,3 +77,18 @@ The following is the Register on the PZEM-004T that will be read.
 | 9       | 0x04           | Alarm status               | 0xFFFF is alarm, 0x0000 is not alarm |
 | 1       | 0x06           | Power alarm threshold      | 1 LSB corresponds to 1 W             |
 | 2       | 0x06           | Modbus-RTU address         | The range is 0x0001 ~ 0x00F7         |
+
+### 2. XY-MD02
+<div align="justify">
+The XY-MD02 is a temperature and humidity sensor with an RS485 communication interface based on the Modbus RTU protocol. This sensor is designed as an industrial device with high reliability and accuracy.The XY-MD02 sensor is capable of measuring two main parameters</div>
+
+1. Temperature: in degrees Celsius (°C), with an accuracy of ±0.3°C,
+2. Humidity: in %RH, with an accuracy of ±3%RH.
+
+The following is the Register on the XY-MD02 that will be read.
+
+| Parameter       | Function Code | Address | Resolution                   |
+|:---------------:|:-------------:|:-------:|:----------------------------:|
+| Temperature     | 0x04          | 0x001   | 1 LSB corresponds to 0.1 °C  |
+| Humidity        | 0x04          | 0x002   | 1 LSB corresponds to 0.1%    |
+| Device Address  | 0x06          | 0x101   | The range is 0x0001 ~ 0x00F7 |
