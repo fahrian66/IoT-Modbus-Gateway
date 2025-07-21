@@ -13,7 +13,7 @@ The Modbus Gateway typically maps each register from the RTU protocol to a TCP r
 * [Circuit Design](#circuit-design)
 * [Register Mapping](#register-mapping)
 * [Dashboard](#dashboard)
-* [How to Use](#how-to-use)
+* [Contact](#contact)
 
 ## Block Diagram
 <p><img src="assets/BlockDiagram.jpg"></p>
@@ -153,3 +153,17 @@ The Dashboard is built by integrating Firebase, which acts as a data monitoring 
 
 ### XY-MD02
 <p><img src="assets/XY.png"></p>
+
+### Write Function
+<p><img src="assets/writefc.png"></p>
+
+### Device Settings
+<p><img src="assets/settings.png"></p>
+
+## Contact
+
+** Fahrian M Rafli **
+
+* GitHub: [fahrian66](https://github.com/fahrian66)
+* Instagram: [ryan_carlsenn](https://www.instagram.com/ryancarlsenn)
+* Email: [fahrianrafli12@gmail.com](mailto:fahrianrafli12@gmail.com)
