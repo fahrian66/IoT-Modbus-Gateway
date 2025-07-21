@@ -1,4 +1,4 @@
-<h1>Modbus Gateway</h1>
+<h1>IoT Modbus Gateway</h1>
 <div align="justify">
 A Modbus Gateway is a device or system that functions as a bridge between Modbus RTU and Modbus TCP. The primary purpose of this gateway is to enable integration between devices using different protocols, allowing systems to work seamlessly without the need for changes to existing hardware. In its implementation, the Modbus Gateway acts as:
 
