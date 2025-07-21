@@ -12,7 +12,7 @@ The Modbus Gateway typically maps each register from the RTU protocol to a TCP r
 * [Block Diagram](#block-diagram)
 * [Circuit Design](#circuit-design)
 * [Register Mapping](#register-mapping)
-* [Website](#website)
+* [Dashboard](#dashboard)
 * [How to Use](#how-to-use)
 
 ## Block Diagram
@@ -63,22 +63,22 @@ The PZEM-004T is an AC communication module designed to measure various electric
 
 The following is the Register on the PZEM-004T that will be read.
 
-| Address | Function Code  | Description                | Resolution                           |
-|:-------:|:--------------:|----------------------------|--------------------------------------|
-| 0       | 0x04           | Voltage value              | 1 LSB corresponds to 0.1 V           |
-| 1       | 0x04           | Current value low 16 bits  | 1 LSB corresponds to 0.001 A         |
-| 2       | 0x04           | Current value high 16 bits | 1 LSB corresponds to 0.001 A         |
-| 3       | 0x04           | Power value low 16 bits    | 1 LSB corresponds to 0.1 W           |
-| 4       | 0x04           | Power value high 16 bits   | 1 LSB corresponds to 0.1 W           |
-| 5       | 0x04           | Energy value low 16 bits   | 1 LSB corresponds to 1 Wh            |
-| 6       | 0x04           | Energy value high 16 bits  | 1 LSB corresponds to 1 Wh            |
-| 7       | 0x04           | Frequency value            | 1 LSB corresponds to 0.1 Hz          |
-| 8       | 0x04           | Power factor value         | 1 LSB corresponds to 0.01            |
-| 9       | 0x04           | Alarm status               | 0xFFFF is alarm, 0x0000 is not alarm |
-| 1       | 0x06           | Power alarm threshold      | 1 LSB corresponds to 1 W             |
-| 2       | 0x06           | Modbus-RTU address         | The range is 0x0001 ~ 0x00F7         |
+| Address | Function Code | Description                | Resolution                           |
+|:-------:|:-------------:|----------------------------|--------------------------------------|
+| 0       | 0x04          | Voltage value              | 1 LSB corresponds to 0.1 V           |
+| 1       | 0x04          | Current value low 16 bits  | 1 LSB corresponds to 0.001 A         |
+| 2       | 0x04          | Current value high 16 bits | 1 LSB corresponds to 0.001 A         |
+| 3       | 0x04          | Power value low 16 bits    | 1 LSB corresponds to 0.1 W           |
+| 4       | 0x04          | Power value high 16 bits   | 1 LSB corresponds to 0.1 W           |
+| 5       | 0x04          | Energy value low 16 bits   | 1 LSB corresponds to 1 Wh            |
+| 6       | 0x04          | Energy value high 16 bits  | 1 LSB corresponds to 1 Wh            |
+| 7       | 0x04          | Frequency value            | 1 LSB corresponds to 0.1 Hz          |
+| 8       | 0x04          | Power factor value         | 1 LSB corresponds to 0.01            |
+| 9       | 0x04          | Alarm status               | 0xFFFF is alarm, 0x0000 is not alarm |
+| 1       | 0x06          | Power alarm threshold      | 1 LSB corresponds to 1 W             |
+| 2       | 0x06          | Modbus-RTU address         | The range is 0x0001 ~ 0x00F7         |
 
-### 2. XY-MD02
+### 3. XY-MD02
 <div align="justify">
 The XY-MD02 is a temperature and humidity sensor with an RS485 communication interface based on the Modbus RTU protocol. This sensor is designed as an industrial device with high reliability and accuracy.The XY-MD02 sensor is capable of measuring two main parameters</div>
 
@@ -92,3 +92,64 @@ The following is the Register on the XY-MD02 that will be read.
 | Temperature     | 0x04          | 0x001   | 1 LSB corresponds to 0.1 °C  |
 | Humidity        | 0x04          | 0x002   | 1 LSB corresponds to 0.1%    |
 | Device Address  | 0x06          | 0x101   | The range is 0x0001 ~ 0x00F7 |
+
+### TCP Address
+<div align="justify">
+All registers read from the three slaves will be reformatted into Modbus TCP so they can be received and processed by Node-RED. This process is performed by mapping each parameter value obtained via Modbus RTU to the corresponding Modbus TCP register address. The primary purpose of using Modbus TCP is to enable industrial system access via TCP/IP, where data can be monitored or integrated with other industrial systems using IP addresses.
+Given that some parameters have decimal values, a mapping and data formatting process is performed to maintain the accuracy of these values. To support the representation of decimal values in Modbus TCP, sensor data is formatted by separating integer and decimal values into two separate registers. This approach ensures that each parameter displayed in Node-RED remains accurate, especially for parameters from the PZEM-004T and XY-MD02 slaves, which require fractional value representation.</div>
+
+The following shows the Register Mapping in Modbus TCP format.
+
+| No  | Slave          | Parameter              | TCP Address |
+|:---:|:--------------:|:----------------------:|:-----------:|
+| 1   | Node Universal | 0                      | 0           |
+| 2   | Node Universal | 1                      | 1           |
+| 3   | Node Universal | 2                      | 2           |
+| 4   | Node Universal | 3                      | 3           |
+| 5   | Node Universal | 4                      | 4           |
+| 6   | Node Universal | 5                      | 5           |
+| 7   | Node Universal | 6                      | 6           |
+| 8   | Node Universal | 7                      | 7           |
+| 9   | Node Universal | 8                      | 8           |
+| 10  | Node Universal | 9                      | 9           |
+| 11  | Node Universal | 10                     | 10          |
+| 12  | Node Universal | 11                     | 11          |
+| 13  | Node Universal | 12                     | 12          |
+| 14  | Node Universal | 13                     | 13          |
+| 15  | Node Universal | 14                     | 14          |
+| 16  | Node Universal | 15                     | 15          |
+| 17  | Node Universal | Response Time 1 (Int)  | 16          |
+| 18  | Node Universal | Response Time 1 (Dec)  | 17          |
+| 19  | PZEM           | Voltage (Int)          | 18          |
+| 20  | PZEM           | Voltage (Dec)          | 19          |
+| 21  | PZEM           | Current (Int)          | 20          |
+| 22  | PZEM           | Current (Dec)          | 21          |
+| 23  | PZEM           | Power (Int)            | 22          |
+| 24  | PZEM           | Power (Dec)            | 23          |
+| 25  | PZEM           | Energy (Int)           | 24          |
+| 26  | PZEM           | Energy (Dec)           | 25          |
+| 27  | PZEM           | Frequency (Int)        | 26          |
+| 28  | PZEM           | Frequency (Dec)        | 27          |
+| 29  | PZEM           | Power Factor (Int)     | 28          |
+| 30  | PZEM           | Power Factor (Dec)     | 29          |
+| 31  | PZEM           | Response Time 2 (Int)  | 30          |
+| 32  | PZEM           | Response Time 2 (Dec)  | 31          |
+| 33  | XY-MD02        | Temperature (Int)      | 32          |
+| 34  | XY-MD02        | Temperature (Dec)      | 33          |
+| 35  | XY-MD02        | Humidity (Int)         | 34          |
+| 36  | XY-MD02        | Humidity (Dec)         | 35          |
+| 37  | XY-MD02        | Response Time 3 (Dec)  | 36          |
+| 38  | XY-MD02        | Response Time 3 (Int)  | 37          |
+
+## Dashboard
+<div align="justify">
+The Dashboard is built by integrating Firebase, which acts as a data monitoring tool and provides remote configuration control features. Through this Dashboard, users can configure the Slave ID, Serial configuration, and Wi-Fi SSID and password. This Dashboard obtains data by retrieving JSON data from the Firebase Realtime Database. To access this data, the Dashboard makes a call to the Firebase Realtime Database address, which is composed of an API Key, Database URL, and Website URL.</div>
+
+### Node Universal
+<p><img src="assets/NodeUniversal.png"></p>
+
+### PZEM-004T
+<p><img src="assets/PZEM.png"></p>
+
+### XY-MD02
+<p><img src="assets/XY.png"></p>
