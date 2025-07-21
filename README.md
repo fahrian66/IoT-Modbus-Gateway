@@ -23,3 +23,4 @@ In Figure above, the system is designed using RS485 as the communication channel
 <p><img src="assets/MainBlock.jpg"></p>
 <div align="justify">
 The image above shows an overview of the Modbus Gateway workflow in a Modbus communication system. The Modbus Gateway receives data from the Slave via Modbus RTU format with RS485. The ESP32-S3 microcontroller acts as the Modbus Gateway, receiving the data and sending it to the Dashboard. The data acquisition process begins with the Modbus Gateway sending a Frame Request to the Slave using the Modbus RTU Frame Request format. </div>
+
