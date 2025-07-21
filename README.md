@@ -166,3 +166,4 @@ The Dashboard is built by integrating Firebase, which acts as a data monitoring 
 
 * GitHub: [fahrian66](https://github.com/fahrian66)
 * Instagram: [ryan.carlsenn](https://www.instagram.com/ryan.carlsenn)
+* LinkedIn: [Fahrian M. Rafli](https://www.linkedin.com/in/fahrian-m-rafli-274608269/)
