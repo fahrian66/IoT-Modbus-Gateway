@@ -4,7 +4,9 @@ A Modbus Gateway is a device or system that functions as a bridge between Modbus
 1. A Modbus RTU master, which reads data from slave devices using RS485 communication.
 2. A Modbus TCP server, which provides this data to other systems (e.g., SCADA or Node-RED) over an IP network.
 
-The Modbus Gateway typically maps each register from the RTU protocol to a TCP register address, allowing the monitoring system to access the data without having to re-read it from the slave device. <img src="https://github.com/HanindaAgyanti/Microcontroller-Project/blob/main/Audio%20Sistem%20Pengingat%20Penyiram%20Tanaman/bahan-readme/AUDIO%20PENGINGAT%20PENYIRAM%20TANAMAN.png">
+The Modbus Gateway typically maps each register from the RTU protocol to a TCP register address, allowing the monitoring system to access the data without having to re-read it from the slave device.
+
+<img src="assets/ModbusGateway.jpg" width="400">
 
 ## Overview
 * <a href="#blok-diagram">Block Diagram</a>
@@ -12,4 +14,7 @@ The Modbus Gateway typically maps each register from the RTU protocol to a TCP r
 * <a href="#register-mapping">Register Mapping</a>
 * <a href="#website">Website</a>
 * <a href="#how-to-use">How to Use</a>
-<br></br>
+
+## Block Diagram
+
+<img src="assets/BlockDiagram.jpg">
