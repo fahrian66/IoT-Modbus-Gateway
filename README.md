@@ -27,4 +27,17 @@ The image above shows an overview of the Modbus Gateway workflow in a Modbus com
 ## Circuit Design
 <p><img src="assets/Schematic.png"></p>
 
+The pin configuration of each component is explained in the following table.
+
+|No.    |Pin ESP32-S3 | Components    |
+| :---: | ---         | ---           |
+| 1     | SDA         | RTC           |
+| 2     | SCL         | RTC           |
+| 3     | CS          | SDCard Module |
+| 4     | MOSI        | SDCard Module |
+| 5     | CLK         | SDCard Module |
+| 6     | MISO        | SDCard Module |
+| 7     | RX          | TTL to RS485  |
+| 8     | TX          | TTL to RS485  |
+
 ## Register Mapping
