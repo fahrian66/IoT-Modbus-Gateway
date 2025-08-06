@@ -16,7 +16,7 @@ The Modbus Gateway typically maps each register from the RTU protocol to a TCP r
 * [Contact](#contact)
 
 ## Block Diagram
-<p><img src="assets/BlockDiagram.jpg"></p>
+<p><img src="assets/FullCircuit.jpg"></p>
 <div align="justify">
 In Figure above, the system is designed using RS485 as the communication channel with the slave. Slave readings on the Universal Nodes can be performed flexibly by configuring the Slave ID, Function, or Register address parameters to be read. Meanwhile, readings on the PZEM-004T and XY-MD02 are static and cannot be changed. The reading results are then sent in two outputs: a website-based dashboard via Firebase and a dashboard using the Node-RED platform.</div>
 <br></br>
