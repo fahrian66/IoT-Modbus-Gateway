@@ -6,7 +6,7 @@ A Modbus Gateway is a device or system that functions as a bridge between Modbus
 2. A Modbus TCP server, which provides this data to other systems (e.g., SCADA or Node-RED) over an IP network.
 
 The Modbus Gateway typically maps each register from the RTU protocol to a TCP register address, allowing the monitoring system to access the data without having to re-read it from the slave device.</div>
-<p><img src="assets/ModbusGateway.jpg" width="400"></p>
+<p><img src="assets/FullCircuit.jpg"></p>
 
 ## Overview
 * [Block Diagram](#block-diagram)
@@ -16,7 +16,7 @@ The Modbus Gateway typically maps each register from the RTU protocol to a TCP r
 * [Contact](#contact)
 
 ## Block Diagram
-<p><img src="assets/FullCircuit.jpg"></p>
+<p><img src="assets/BlockDiagram.jpg"></p>
 <div align="justify">
 In Figure above, the system is designed using RS485 as the communication channel with the slave. Slave readings on the Universal Nodes can be performed flexibly by configuring the Slave ID, Function, or Register address parameters to be read. Meanwhile, readings on the PZEM-004T and XY-MD02 are static and cannot be changed. The reading results are then sent in two outputs: a website-based dashboard via Firebase and a dashboard using the Node-RED platform.</div>
 <br></br>
